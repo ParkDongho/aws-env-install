@@ -27,7 +27,8 @@ rm cs
 
 sudo yum -y install verilator
 
-# nvim
+# nvim ----------------------------------
+#
 sudo yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 sudo yum install -y neovim python3-neovim
 
@@ -39,5 +40,38 @@ sudo dnf install ripgrep
 
 sudo dnf copr enable atim/lazygit -y
 sudo dnf install lazygit
+
+curl -L https://github.com/dundee/gdu/releases/latest/download/gdu_linux_amd64.tgz | tar xz
+chmod +x gdu_linux_amd64
+mv gdu_linux_amd64 /usr/bin/gdu
+
+sudo dnf copr enable atim/bottom -y
+sudo dnf install bottom
+
+sudo dnf groupinstall "Development Tools"
+sudo dnf module list nodejs
+sudo dnf module install nodejs/development
+
+mv ~/.config/nvim ~/.config/nvim.bak
+mv ~/.local/share/nvim ~/.local/share/nvim.bak
+mv ~/.local/state/nvim ~/.local/state/nvim.bak
+mv ~/.cache/nvim ~/.cache/nvim.bak
+
+git clone --depth 1 https://github.com/AstroNvim/AstroNvim ~/.config/nvim
+git clone https://github.com/ParkDongho/astronvim_config ~/.config/nvim/lua/user
+
+nvim
+
+
+
+
+
+
+
+
+
+
+
+
 
 
